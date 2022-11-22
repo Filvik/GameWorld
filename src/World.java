@@ -10,6 +10,7 @@ public class World {
     private boolean isCorrect = false;
     private boolean isCorrectCrossroads = false;
     private boolean isCorrectFight = false;
+    private final Scanner scanner = new Scanner(System.in);
 
     public void life() {
 
@@ -24,7 +25,6 @@ public class World {
         System.out.println("2 - Создать персонажа в ручную");
 
         while (!isCorrect) {
-            Scanner scanner = new Scanner(System.in);
             String number = scanner.nextLine();
 
             if (number.equals("1")) {
@@ -61,7 +61,6 @@ public class World {
             System.out.println("2 - В тёмный лес");
             System.out.println("3 - На выход");
 
-            Scanner scanner = new Scanner(System.in);
             String cross = scanner.nextLine();
 
             switch (cross) {
@@ -74,8 +73,7 @@ public class World {
                         System.out.println("1 - Вернуться в город.");
                         System.out.println("2 - Продолжить торговлю.");
 
-                        Scanner scannerTrade = new Scanner(System.in);
-                        String trade = scannerTrade.nextLine();
+                        String trade = scanner.nextLine();
 
                         switch (trade) {
                             case "1" -> isCorrectTrade = true;
@@ -92,8 +90,7 @@ public class World {
                         System.out.println("1 - Вернуться в город.");
                         System.out.println("2 - Сразиться с еще одним монстром.");
 
-                        Scanner scannerFight = new Scanner(System.in);
-                        String tradeFight = scannerFight.nextLine();
+                        String tradeFight = scanner.nextLine();
 
                         switch (tradeFight) {
                             case "1" -> isCorrectFight = true;
@@ -130,21 +127,21 @@ public class World {
     private void manualCreatingANewCharacter() {
 
         System.out.println("Введите имя нового персонажа");
-        Scanner scannerName = new Scanner(System.in);
-        String name = scannerName.nextLine();
+
+        String name = scanner.nextLine();
 
         System.out.println("Введите количество жизни у нового персонажа");
         int health = 0;
         while (!isCorrect) {
             try {
-                Scanner scannerHealth = new Scanner(System.in);
-                health = scannerHealth.nextInt();
+                health = scanner.nextInt();
                 isCorrect = check(health);
                 if (!isCorrect)
                     System.out.println("Введите корректное значение! Уровень жизни не может быть отрицательным");
             } catch (InputMismatchException e) {
                 System.out.println("Введено не корректное значение! Попробуйте еще раз.");
                 isCorrect = false;
+                scanner.next();
             }
         }
 
@@ -153,14 +150,14 @@ public class World {
         int gold = 0;
         while (!isCorrect) {
             try {
-                Scanner scannerGold = new Scanner(System.in);
-                gold = scannerGold.nextInt();
+                gold = scanner.nextInt();
                 isCorrect = check(gold);
                 if (!isCorrect)
                     System.out.println("Введите корректное значение! Уровень золота не может быть отрицательным");
             } catch (InputMismatchException e) {
                 System.out.println("Введено не корректное значение! Попробуйте еще раз.");
                 isCorrect = false;
+                scanner.next();
             }
         }
 
@@ -169,14 +166,14 @@ public class World {
         int dexterity = 0;
         while (!isCorrect) {
             try {
-                Scanner scannerDexterity = new Scanner(System.in);
-                dexterity = scannerDexterity.nextInt();
+                dexterity = scanner.nextInt();
                 isCorrect = check(dexterity);
                 if (!isCorrect)
                     System.out.println("Введите корректное значение! Уровень ловкости не может быть отрицательным");
             } catch (InputMismatchException e) {
                 System.out.println("Введено не корректное значение! Попробуйте еще раз.");
                 isCorrect = false;
+                scanner.next();
             }
         }
 
@@ -185,14 +182,14 @@ public class World {
         int anExperience = 0;
         while (!isCorrect) {
             try {
-                Scanner scannerAnExperience = new Scanner(System.in);
-                anExperience = scannerAnExperience.nextInt();
+                anExperience = scanner.nextInt();
                 isCorrect = check(anExperience);
                 if (!isCorrect)
                     System.out.println("Введите корректное значение! Уровень опыта не может быть отрицательным");
             } catch (InputMismatchException e) {
                 System.out.println("Введено не корректное значение! Попробуйте еще раз.");
                 isCorrect = false;
+                scanner.next();
             }
         }
 
@@ -201,14 +198,14 @@ public class World {
         int force = 0;
         while (!isCorrect) {
             try {
-                Scanner scannerForce = new Scanner(System.in);
-                force = scannerForce.nextInt();
+                force = scanner.nextInt();
                 isCorrect = check(force);
                 if (!isCorrect)
                     System.out.println("Введите корректное значение! Уровень силы не может быть отрицательным");
             } catch (InputMismatchException e) {
                 System.out.println("Введено не корректное значение! Попробуйте еще раз.");
                 isCorrect = false;
+                scanner.next();
             }
         }
 
@@ -217,14 +214,14 @@ public class World {
         int level = 0;
         while (!isCorrect) {
             try {
-                Scanner scannerLevel = new Scanner(System.in);
-                level = scannerLevel.nextInt();
+                level = scanner.nextInt();
                 isCorrect = check(level);
                 if (!isCorrect)
                     System.out.println("Введите корректное значение! Уровень не может быть отрицательным");
             } catch (InputMismatchException e) {
                 System.out.println("Введено не корректное значение! Попробуйте еще раз.");
                 isCorrect = false;
+                scanner.next();
             }
         }
 
