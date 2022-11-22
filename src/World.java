@@ -10,7 +10,6 @@ public class World {
     private boolean isCorrect = false;
     private boolean isCorrectCrossroads = false;
     private boolean isCorrectFight = false;
-    private int element = 0;
     private final Scanner scanner = new Scanner(System.in);
 
     public void life() {
@@ -159,6 +158,7 @@ public class World {
     private int creatingElements(String elements){
 
         System.out.println("Введите " + elements + " нового персонажа");
+        int element = 0;
         isCorrect = false;
         while (!isCorrect) {
             try {
